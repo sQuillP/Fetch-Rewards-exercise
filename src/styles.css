@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* Import custom Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root{
+    --fetch-orange: #f49932;
+    --form-height: 502px;
+    --fetch-orange-hover:#da882c;
+}
+
+html, body {
+    margin:0px;
+    padding: 0px;
+    font-family: 'Lato', sans-serif;
+    background-color: var(--fetch-orange)
+}
+
+
+
+.btn{
+    margin: 0 auto;
+    font-size: 1.4em;
+    border: none;
+    background: var(--fetch-orange);
+    color: white;
+    cursor: pointer;
+    padding: 10px 30px;
+    transition: 100ms background linear;
+}
+
+.btn:hover{
+    background: var(--fetch-orange-hover)
+}

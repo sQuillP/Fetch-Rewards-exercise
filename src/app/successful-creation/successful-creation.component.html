@@ -1,0 +1,44 @@
+<div class="overlay">
+    <div class="overlay-content">
+        
+    </div>
+</div>
+
+<div class="main">
+    <div class="success-icon-wrapper">
+        <i class="success-icon fa-solid fa-check"></i>
+    </div>
+    <p class="desc">Employee has been successfully created!</p>
+    <div class="emp-content">
+        <table *ngIf="(createdUser$ | async) as createdUser" class="data-table">
+            <tr class="row">
+                <td class="col">Full Name: </td>
+                <td class="col">{{createdUser.name}}</td>
+            </tr>
+            <tr class="row">
+                <td class="col">Email</td>
+                <td class="col">{{createdUser.email}}</td>
+            </tr>
+            <tr class="row">
+                <td class="col">Occupation</td>
+                <td class="col">{{createdUser.occupation}}</td>
+            </tr>
+            <tr class="row">
+                <td class="col">State</td>
+                <td class="col">{{createdUser.state}}</td>
+            </tr>
+            <tr class="row">
+                <td class="col" id="pswd_col">
+                    <i (click)="showPassword = !showPassword" *ngIf="showPassword" class="eye-icon fa-regular fa-eye"></i>
+                    <i (click)="showPassword = !showPassword" *ngIf="!showPassword" class="eye-icon fa-solid fa-eye-slash"></i> Password</td>
+                <td class="col">
+                    {{getUserPassword()}}
+                </td>
+
+            </tr>
+        </table>
+    </div>
+    <button routerLink="create-user" class="btn backbtn"><i class="fa-solid fa-arrow-left"></i> Back</button>
+</div>
+
+

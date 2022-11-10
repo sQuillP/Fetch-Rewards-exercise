@@ -1,0 +1,75 @@
+.main {
+    text-align: center;
+    animation: load-in 200ms linear;
+    height: var(--form-height);
+}
+
+.success-icon-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.success-icon{
+    font-size: 3.3em;
+    color: green;
+    animation-name: checkAnimation;
+    animation-duration: 500ms;
+    animation-timing-function: linear;
+}
+
+.desc{
+    font-size: 1.3em;
+}
+
+.backbtn{
+    margin: 20px;
+}
+
+.data-table{
+    margin: 20px 0px;
+}
+
+.emp-content{
+    display: flex;
+    justify-content: center;
+}
+
+.col{
+    text-align: left;
+    padding: 10px;
+}
+
+.eye-icon {
+    position: absolute;
+    left: -14px;
+    top: 13px;
+    color: black;
+    cursor: pointer;
+}
+
+#pswd_col{
+    position: relative;
+}
+
+@keyframes checkAnimation {
+    0%{
+        transform: scale(2);
+        opacity: 0;
+    }
+
+    50%{
+        transform: scale(0.5) rotate(-20deg);
+        opacity: 0.5;
+    }
+
+    100%{
+        transform: scale(1.0);
+        opacity: 1;
+    }
+}
+
+@keyframes load-in {
+    0%{opacity: 0;}
+
+    100%{opacity: 1;}
+}

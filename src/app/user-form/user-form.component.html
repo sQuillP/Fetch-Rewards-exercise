@@ -1,0 +1,64 @@
+<div [ngClass]="{'shake':shakeForm}" class="inputs-wrapper">
+    <form [formGroup]="createUser" *ngIf="!isLoading" (ngSubmit)="onSubmit($event)">
+        <div class="form-entry">
+            <label class="entry-label" for="fullname">Full Name <span class="required">*</span></label>
+            <input [ngClass]="{'errorInput':hasError('fullName')}" formControlName="fullName" type="text" autocomplete="off" class="form-input" id="fullname" placeholder="Alan Smith">
+            <i class="icon-left fa-regular fa-id-card"></i>
+            <span *ngIf="hasError('fullName')" class="error">
+                {{getUserError('fullName')}}
+            </span>
+        </div>
+        <div class="form-entry">
+            <label class="entry-label" for="email">Email <span class="required">*</span></label>
+            <input [ngClass]="{'errorInput':hasError('email')}" formControlName="email" type="email" autocomplete="off" class="form-input" id="email" placeholder="alan@gmail.com">
+            <i class="icon-left fa-solid fa-at"></i>
+            <span *ngIf="hasError('email')" class="error">
+                {{getUserError('email')}}
+            </span>
+        </div>
+        <div class="form-entry">
+            <label class="entry-label" for="password">Password <span class="required">*</span></label>
+            <input [ngClass]="{'errorInput':hasError('password')}" formControlName="password" [type]="passwordInputType" autocomplete="off" class="form-input" id="password">
+            <i class="icon-left fa-solid fa-lock"></i>
+            <i *ngIf="passwordInputType==='password'" (click)="passwordInputType='text'" class="icon-right fa-regular fa-eye"></i>
+            <i *ngIf="passwordInputType==='text'" (click)="passwordInputType='password'" class="icon-right fa-solid fa-eye-slash"></i>
+            <span *ngIf="hasError('password')" class="error">
+                {{getUserError('password')}}
+            </span>
+        </div>
+        <div class="form-entry">
+                <!-- Asynchronously add the option fields to the select-->
+            <label class="entry-label" for="occupation">Select Occupation <span class="required">*</span></label>
+            <select *ngIf="(occupationAndState$ | async) as occObj" formControlName="occupation" class="option" name="occupation" class="dropdown" id="occupation">
+                <option disabled selected>Select an occupation</option>
+                <option *ngFor="let _occupation of occObj.occupations" [value]="_occupation">
+                    {{_occupation}}
+                </option>
+            </select>
+            <span *ngIf="hasError('occupation')" class="error">
+                {{getUserError('occupation')}}
+            </span>
+        </div>
+        <div class="form-entry">
+            <label class="entry-label" for="state">Select State <span class="required">*</span></label>
+            <!-- Asynchronously add the option fields to the select-->
+            <select *ngIf="(occupationAndState$|async) as occObj" formControlName="state" name="state" class="dropdown" id="state">
+                <option disabled selected>Select a state</option>
+                <option *ngFor="let _state of occObj.states" [value]="_state.name">
+                    {{_state.name}}
+                </option>
+            </select>
+            <span *ngIf="hasError('state')" class="error">
+                {{getUserError('state')}}
+            </span>
+        </div>
+        <div class="form-entry submit">
+            <span *ngIf="showNetworkError" class="error-bottom">Error sending data. Please check internet connection.</span>
+            <button (click)="onSubmit($event)" class="btn">Create</button>
+        </div>
+    </form>
+    <div *ngIf="isLoading" class="loading">
+        <div class="spinner"></div>
+        <p class="load-text">Loading, please wait <span class="dots">...</span></p>
+    </div>
+</div>

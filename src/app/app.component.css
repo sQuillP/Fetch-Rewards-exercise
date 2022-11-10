@@ -1,0 +1,50 @@
+
+.main {
+    max-width: 800px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    margin: 50px auto 0px auto;
+}
+
+
+
+/* Form logo and header styling */
+.form-container {
+    background: white;
+    border-radius: 5px;
+}
+
+.form-logo {
+    height: 200px;
+    width: 300px;
+    margin: 0px auto;
+}
+
+.logo {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.form-header{
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0px;
+    margin-bottom: 30px;
+}
+
+.header{
+    font-size: 3em;
+    margin: 0px;
+    padding: 0px;
+    font-weight: 300;
+
+}
+
+.form-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Adjust to smaller screens/mobile view*/
