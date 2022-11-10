@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-/*
 
+/*
+  Created by: William Pattison
+  email: will.m.pattison@gmail.com
 */
 
 
